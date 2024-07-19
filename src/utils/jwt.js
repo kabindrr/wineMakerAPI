@@ -14,7 +14,11 @@ export const signAccessJWT = (email) => {
 
 //verify access JWT
 export const verifyAccessJWT = (token) => {
-  JWT.verify(token, Refresh_Secret_Key);
+  try {
+    return JWT.verify(token, Access_Secret_Key);
+  } catch (error) {
+    return error;
+  }
 };
 
 //for Refresh JWT
