@@ -1,6 +1,6 @@
-import { getToken } from "../model/session/sessionModal";
-import { getUser } from "../model/user/userModal";
-import { verifyAccessJWT } from "../utils/jwt";
+import { getToken } from "../model/session/sessionModal.js";
+import { getUser } from "../model/user/userModal.js";
+import { verifyAccessJWT } from "../utils/jwt.js ";
 
 export const auth = async (req, res, next) => {
   try {
@@ -24,6 +24,7 @@ export const auth = async (req, res, next) => {
           user.refreshJWT = undefined;
           req.userInfo = user;
 
+          //next middlewares
           return next();
         }
       }

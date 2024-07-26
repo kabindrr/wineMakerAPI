@@ -1,6 +1,10 @@
 import mongoose, { Schema } from "mongoose";
 
 const wineMakerSchema = new Schema({
+  isEmailVerified: {
+    type: Boolean,
+    default: false,
+  },
   fName: {
     type: String,
     required: true,
