@@ -22,12 +22,11 @@ export const verifyAccessJWT = (token) => {
 };
 
 //for Refresh JWT
-export const signRefreshJWT = async (email) => {
+export const signRefreshJWT = (email) => {
   const refreshJWT = JWT.sign({ email }, Refresh_Secret_Key, {
     expiresIn: "30d",
   });
-
-  await updateUser({ email }, { refreshJWT });
+  updateUser({ email }, { refreshJWT });
   return refreshJWT;
 };
 //verify Refresh JWT
